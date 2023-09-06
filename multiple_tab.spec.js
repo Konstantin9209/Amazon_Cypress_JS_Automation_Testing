@@ -10,9 +10,15 @@ describe("Multiple window handle", ()=>{
 
         cy.contains("a", "Click Here").as('button')
 
-        cy.get("@button").should("have.attr", "href").and("equal", "https://qatechhub.com/")
+        cy.get("@button").should("have.attr", "href").and("equal", "https://qatechhub.com")
   
         cy.get("@button").should("have.attr", "target").and("equal", "_blank")
 
     })
+    it("Navigate to target page by removing attr", ()=>{
+        cy.contains("a", "Click Here").as('button')
+
+        cy.get("@button").invoke('removeAttr', "targer").click()
+    })
+    
 })
